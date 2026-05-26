@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* 📊 Modern Stock Screener Styles (TradingView & Bloomberg Dark Glassmorphism) */
+
+@layer base {
+  body {
+    background-color: #020617; /* slate-950 */
+    color: #f1f5f9; /* slate-100 */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom Webkit scrollbar for premium trading console look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 1px solid #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2fe;
+}
+
+/* Glassmorphism glow overlays & containers */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Stock status tags styling */
+.badge-buy {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.badge-watch {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+.badge-avoid {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+/* Smooth keyframes indicator animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.glow-pulse {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Mobile responsive drawer styling */
+.mobile-sidebar-active {
+  display: flex !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50;
+  background-color: rgba(2, 6, 17, 0.98) !important;
+  width: 250px !important;
+  border-right: 1px solid rgba(51, 65, 85, 0.8) !important;
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Pivot lines references custom details */
+.marker-title {
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* Range input high quality custom slide tracks */
+input[type="range"] {
+  height: 6px;
+  border-radius: 99px;
+  background-color: #0f172a;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #00f2fe;
+  border: 2px solid #000;
+  cursor: pointer;
+}
